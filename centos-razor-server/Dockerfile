@@ -13,10 +13,6 @@ RUN  yum -y update
 RUN  rpm -ivh https://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-10.noarch.rpm && \
      yum install -y puppet tar
 
-# Per Beaker docs, these are requirements
-# https://github.com/puppetlabs/beaker/wiki/Creating-A-Test-Environment
-# RUN yum install -y curl ntp git ruby
-
 ADD  razor-postgres-install.pp /
 ADD  start.sh /
 
