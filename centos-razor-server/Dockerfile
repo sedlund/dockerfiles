@@ -3,10 +3,10 @@
 
 FROM tianon/centos:6.5
 
-RUN  echo export http_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
-     echo export https_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
-     echo export ftp_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
-     echo proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/yum.conf
+#RUN  echo export http_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
+#     echo export https_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
+#     echo export ftp_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
+#     echo proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/yum.conf
 
 RUN  yum -y update
 
