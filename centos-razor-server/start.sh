@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 mkernelurl=http://links.puppetlabs.com/razor-microkernel-latest.tar
 mkerneltar=`basename $mkernelurl`
 repodir=/var/lib/razor/repo-store
