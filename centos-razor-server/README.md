@@ -4,4 +4,4 @@ Create a storage container before running this
 
 Start centos-razor-server and attach storage and link ports
 
- docker run -d --volumes-from razor-repo --name razor-server -p 69:69 -p8080:8080 sedlund/centos-razor-server
+ docker run -d --volumes-from razor-repo --name razor-server -p 69:69 -p 8080:8080 sedlund/centos-razor-server
