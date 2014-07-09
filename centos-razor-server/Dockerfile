@@ -29,9 +29,6 @@ RUN  puppet module install puppetlabs/postgresql
 RUN  puppet module install puppetlabs/razor
 RUN  puppet apply -e 'include razor'
 
-#VOLUME    /var/lib/razor/repo-store
-#VOLUME    /var/lib/pgsql
-
 # 69      TFTP
 # 8080	Torquebox API
 EXPOSE    69 8080
