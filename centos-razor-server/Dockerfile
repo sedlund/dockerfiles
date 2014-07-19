@@ -16,6 +16,7 @@ RUN  rpm -ivh https://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release
 ADD  razor-postgres-install.pp /
 ADD  start.sh /
 
+ENV  HOSTNAME       razor-server
 ENV  TORQUEBOX_HOME /opt/razor-torquebox
 ENV  JBOSS_HOME     $TORQUEBOX_HOME/jboss
 ENV  JRUBY_HOME     $TORQUEBOX_HOME/jruby
