@@ -1,5 +1,18 @@
-# Create a storage container before running this
-# docker run -v /var/lib/razor/repo-store -v /var/lib/pgsql --name razor-repo tianon/true
+# Create a storage container before running this:
+#
+# docker run --name razor-repo -v /var/lib/razor/repo-store -v /var/lib/pgsql -v /var/logs tianon/true
+# 
+# Start centos-razor-server and attach storage and link ports.  TFTP should stay on 69, but feel free to remap 8080.
+#
+# docker run --name razor-server --hostname razor-server -d --volumes-from razor-repo \
+#    -p 8080:8080 sedlund/centos-razor-server
+#
+# The first time this is run the /start.sh script will set up the db if it has
+# not been yet.  It will also check for the razor microkernel and grab and unpack it.
+#
+# You will then need a DHCP and TFTP server to point to this container, and a
+# razor-client installed somewhere to interact with this container.
+#
 
 FROM tianon/centos:6.5
 
@@ -28,7 +41,7 @@ RUN  puppet apply -e 'include razor'
 
 # 69      TFTP
 # 8080	Torquebox API
-EXPOSE    69 8080
+EXPOSE    8080
 
 RUN  chmod +x /start.sh
 CMD  ["/start.sh"]
