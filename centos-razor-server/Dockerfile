@@ -2,7 +2,7 @@
 #
 # docker run --name razor-repo -v /var/lib/razor/repo-store -v /var/lib/pgsql -v /var/logs tianon/true
 # 
-# Start centos-razor-server and attach storage and link ports.  TFTP should stay on 69, but feel free to remap 8080.
+# Start centos-razor-server and attach storage and link ports.
 #
 # docker run --name razor-server --hostname razor-server -d --volumes-from razor-repo \
 #    -p 8080:8080 sedlund/centos-razor-server
@@ -15,11 +15,6 @@
 #
 
 FROM tianon/centos:6.5
-
-#RUN  echo export http_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
-#     echo export https_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
-#     echo export ftp_proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/profile; \
-#     echo proxy=http://`netstat -nr | grep '^0\.0\.0\.0' | awk '{print $2}'`:3128 >> /etc/yum.conf
 
 RUN  yum -y update
 
